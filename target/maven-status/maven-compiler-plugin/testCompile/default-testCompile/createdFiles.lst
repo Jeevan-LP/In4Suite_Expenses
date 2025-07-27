@@ -1,6 +1,5 @@
 Utilities\ZapBrowserFactory.class
 Expenses_FullExecution_Object\Advance_Object.class
-Expenses_TestCases\WorkOrder_Test.class
 Utilities\AppIndependent.class
 Expenses_FullExecution_Object\DebitNoteReceipt_Object.class
 Utilities\Application.class
