@@ -8,7 +8,7 @@ import Expenses_SingleExecution_Object.DebitNote_Object;
 import Utilities.ApplicationScript;
 import Utilities.BaseClass;
 
-@Listeners(Utilities.ExtentReportManager.class)
+//@Listeners(Utilities.ExtentReportManager.class)
 public class DebitNoteAndReceipt_Test extends BaseClass {
 
 	public ApplicationScript application;

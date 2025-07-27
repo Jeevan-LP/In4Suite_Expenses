@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Expenses Module Functional Flow</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jul 27, 2025 12:57:28 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jul 27, 2025 07:45:30 pm</span></a>
 </li>
 </ul>
 </div>
@@ -45,11 +45,6 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
-</a>
-</li>
-<li class="nav-item dropdown" onclick="toggleView('category-view')">
-<a id="nav-category" class="dropdown-toggle" href="#">
-<span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -71,69 +66,49 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
 </li>
-<li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
-<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">Sanity</a><a class="dropdown-item" href="#">Master</a>
-</ul>
-</li>
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="pass" test-id="1"
           author=""
-          tag="Sanity Master"
+          tag=""
           device="">
           <div class="test-detail">
-            <p class="name">WorkOrder</p>
+            <p class="name">WorkOrderCreateTest</p>
             <p class="text-sm">
-              <span>12:58:17 pm</span> / <span>00:00:00:015</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>7:48:38 pm</span> / <span>00:00:00:015</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">WorkOrder</h5>
-<span class='badge badge-success'>07.27.2025 12:58:17 pm</span>
-<span class='badge badge-danger'>07.27.2025 12:58:17 pm</span>
+<h5 class="test-status text-pass">WorkOrderCreateTest</h5>
+<span class='badge badge-success'>07.27.2025 7:48:38 pm</span>
+<span class='badge badge-danger'>07.27.2025 7:48:38 pm</span>
 <span class='badge badge-default'>00:00:00:015</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-15"><span class="badge badge-pill badge-default">Sanity</span>
-<span class="badge badge-pill badge-default">Master</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>12:58:17 pm</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:48:38 pm</td>
         <td>
-          WorkOrder got failed
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>12:58:17 pm</td>
-        <td>
-          Error communicating with the remote browser. It may have died.
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [35ea413105ae1d92597c2bf5fe90d562, findElement [value, using]]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.168 (3e8d82e86e9..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:12427}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:12427/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 35ea413105ae1d92597c2bf5fe90d562
+          WorkOrderCreateTest got successfully executed
         </td>
       </tr>
   </tbody>
@@ -143,12 +118,12 @@ Session ID: 35ea413105ae1d92597c2bf5fe90d562
         </li>
         <li class="test-item"  status="fail" test-id="2"
           author=""
-          tag="Sanity Master"
+          tag=""
           device="">
           <div class="test-detail">
-            <p class="name">WorkOrder</p>
+            <p class="name">AdvanceCreateTest</p>
             <p class="text-sm">
-              <span>12:58:17 pm</span> / <span>00:00:00:001</span>
+              <span>7:50:10 pm</span> / <span>00:00:00:188</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -156,40 +131,122 @@ Session ID: 35ea413105ae1d92597c2bf5fe90d562
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">WorkOrder</h5>
-<span class='badge badge-success'>07.27.2025 12:58:17 pm</span>
-<span class='badge badge-danger'>07.27.2025 12:58:17 pm</span>
-<span class='badge badge-default'>00:00:00:001</span>
+<h5 class="test-status text-fail">AdvanceCreateTest</h5>
+<span class='badge badge-success'>07.27.2025 7:50:10 pm</span>
+<span class='badge badge-danger'>07.27.2025 7:50:11 pm</span>
+<span class='badge badge-default'>00:00:00:188</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-15"><span class="badge badge-pill badge-default">Sanity</span>
-<span class="badge badge-pill badge-default">Master</span></div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='C:\Eclipse\In4Suite_Expenses\ScreenShots\AdvanceCreateTest_20250727195010.png' src="C:\Eclipse\In4Suite_Expenses\ScreenShots\AdvanceCreateTest_20250727195010.png">
+  
+    
+
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>7:50:10 pm</td>
+        <td>
+          AdvanceCreateTest got failed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>7:50:10 pm</td>
+        <td>
+          Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.id: btnYes' (tried for 20 second(s) with 500 milliseconds interval)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">DebitNoteAndReceiptCreateTest</p>
+            <p class="text-sm">
+              <span>7:53:50 pm</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">DebitNoteAndReceiptCreateTest</h5>
+<span class='badge badge-success'>07.27.2025 7:53:50 pm</span>
+<span class='badge badge-danger'>07.27.2025 7:53:50 pm</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>12:58:17 pm</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:53:50 pm</td>
         <td>
-          WorkOrder got failed
+          DebitNoteAndReceiptCreateTest got successfully executed
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">PaymentCreateTest</p>
+            <p class="text-sm">
+              <span>7:56:49 pm</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">PaymentCreateTest</h5>
+<span class='badge badge-success'>07.27.2025 7:56:49 pm</span>
+<span class='badge badge-danger'>07.27.2025 7:56:49 pm</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>12:58:17 pm</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:56:49 pm</td>
         <td>
-          Error communicating with the remote browser. It may have died.
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [35ea413105ae1d92597c2bf5fe90d562, screenshot []]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.168 (3e8d82e86e9..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:12427}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:12427/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 35ea413105ae1d92597c2bf5fe90d562
+          PaymentCreateTest got successfully executed
         </td>
       </tr>
   </tbody>
@@ -206,126 +263,30 @@ Session ID: 35ea413105ae1d92597c2bf5fe90d562
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view category-view attributes-view">
-<div class="test-list">
-<div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
-</div>
-<div class="test-list-wrapper scrollable">
-<ul class="test-list-item">
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>2</span>
-</span>
-<p class="name">Sanity</p>
-<p class="duration text-sm">2 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>Sanity</h4>
-<span status="fail" class='badge log badge-danger'>2 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:58:17 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='1'>WorkOrder</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:58:17 pm</td>
-<td>
-<a href="#" class="linked" test-id='2' id='2'>WorkOrder</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>2</span>
-</span>
-<p class="name">Master</p>
-<p class="duration text-sm">2 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>Master</h4>
-<span status="fail" class='badge log badge-danger'>2 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:58:17 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='1'>WorkOrder</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:58:17 pm</td>
-<td>
-<a href="#" class="linked" test-id='2' id='2'>WorkOrder</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="test-content scrollable">
-<div class="test-content-detail">
-<div class="detail-body"></div>
-</div>
-</div>
-</div><div class="container-fluid p-4 view dashboard-view">
+<div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jul 27, 2025 12:57:28 pm</h3>
+<h3>Jul 27, 2025 07:45:30 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jul 27, 2025 12:58:17 pm</h3>
+<h3>Jul 27, 2025 07:56:50 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>0</h3>
+<h3>3</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>2</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -341,12 +302,12 @@ Session ID: 35ea413105ae1d92597c2bf5fe90d562
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'>
-<b>0</b> tests passed
+<div><small data-tooltip='75%'>
+<b>3</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>2</b> tests failed,
+<small data-tooltip='25%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -364,10 +325,10 @@ Session ID: 35ea413105ae1d92597c2bf5fe90d562
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div><small data-tooltip='60%'><b>3</b> events passed</small></div>
 <div>
-<small data-tooltip='50%'><b>2</b> events failed,
-<b data-tooltip='%'>2</b> others
+<small data-tooltip='20%'><b>1</b> events failed,
+<b data-tooltip='%'>1</b> others
 </small>
 </div>
 </div>
@@ -383,35 +344,10 @@ Session ID: 35ea413105ae1d92597c2bf5fe90d562
 </div></div>
 <script>
 var timeline = {
-"WorkOrder":0.015,"WorkOrder":0.001
+"WorkOrderCreateTest":0.015,"AdvanceCreateTest":0.188,"DebitNoteAndReceiptCreateTest":0,"PaymentCreateTest":0
 };
 </script>
 <div class="row">
-<div class="col-lg-6 col-md-12 category-container">
-<div class="card">
-<div class="card-header"><p>Tags</p></div>
-<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
-<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
-<tr>
-<td>Sanity</td>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-</tr>
-<tr>
-<td>Master</td>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
 <div class="col-lg-6 col-md-12 sysenv-container">
 <div class="card">
 <div class="card-header"><p>System/Environment</p></div>
@@ -455,8 +391,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 0,
-failParent: 2,
+passParent: 3,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -472,11 +408,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 0,
-failEvents: 2,
+passEvents: 3,
+failEvents: 1,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 2
+infoEvents: 1
 };
 </script>        </div>
       </div>

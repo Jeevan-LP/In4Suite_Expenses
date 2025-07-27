@@ -321,7 +321,7 @@ public class Payment_Object {
 		try {
 		AppDep.MainParentFrame();
 		AppDep.LeftFrame();
-		//getExpenses();
+		getExpenses();
 		Thread.sleep(4000);
 		AppDep.DefaultContentFrame();
 		AppDep.MainParentFrame();

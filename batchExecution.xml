@@ -9,9 +9,8 @@
   
   <test thread-count="5" name="Test">
     <classes>
-    <class name="Expenses_TestCases.WorkOrder_Test"/>
-    <!--<class name="Expenses_TestCases.Expenses_FullTest"/>
-      <class name="Expenses_TestCases.WorkOrder_Test"/>
+    <class name="Expenses_TestCases.Expenses_FullTest"/>
+      <!--<class name="Expenses_TestCases.WorkOrder_Test"/>
       <class name="Expenses_TestCases.Advance_Test"/>
       <class name="Expenses_TestCases.DebitNoteAndReceipt_Test"/>
       <class name="Expenses_TestCases.Payment_Test"/>-->

@@ -373,7 +373,7 @@ public class WorkOrder_Object extends BaseClass{
 	    try {
 	        AppDep.MainParentFrame();
 	        AppDep.LeftFrame();
-	        //getExpenses();
+	        getExpenses();
 	        Thread.sleep(6000);
 
 	        AppDep.DefaultContentFrame();
