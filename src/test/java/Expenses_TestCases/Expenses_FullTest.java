@@ -8,13 +8,13 @@ import Expenses_FullExecution_Object.DebitNoteReceipt_Object;
 import Expenses_FullExecution_Object.DebitNote_Object;
 import Expenses_FullExecution_Object.Payment_Object;
 import Expenses_FullExecution_Object.WorkOrder_Object;
-import Utilities.Application;
+import Utilities.ApplicationScript;
 import Utilities.BaseClass;
 
 @Listeners(Utilities.ExtentReportManager.class)
 public class Expenses_FullTest extends BaseClass{
 
-	public Application application;
+	public ApplicationScript application;
 	public WorkOrder_Object WoObject;
 	public Advance_Object AdvObject;
 	public DebitNote_Object DbtNoteObject;
@@ -25,7 +25,7 @@ public class Expenses_FullTest extends BaseClass{
 	@Test(priority = 2, groups = {"Sanity", "Master"})
 	public void WorkOrder() throws Throwable {
 		///Application login
-		application = new Application();
+		application = new ApplicationScript();
 		application.loginTest();
 		
 		WoObject = new WorkOrder_Object(getDriver());

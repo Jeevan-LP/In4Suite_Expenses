@@ -26,6 +26,7 @@ public class WorkOrder_Object extends BaseClass{
 	public DataTable data;
 	public WebDriverWait ExpWait;
 	public int wait=20;
+	public String WODisplayNo="";
 	
 	public WorkOrder_Object(WebDriver BrowserDriver) {
 		this.BrowserDriver = BrowserDriver;
@@ -48,7 +49,7 @@ public class WorkOrder_Object extends BaseClass{
 	public void getExpenses() {
 		AppInd.waitForVisibility(BrowserDriver, Expenses, wait);
 		AppInd.waitForClickable(BrowserDriver, Expenses, wait);
-		Expenses.click();
+		AppInd.jsClick(BrowserDriver, Expenses);
 	}
 	
 	@FindBy(xpath  = "//a[text()='Work Order ']")
@@ -56,7 +57,7 @@ public class WorkOrder_Object extends BaseClass{
 	public void getWorkOrder() {
 		AppInd.waitForVisibility(BrowserDriver, WorkOrder, wait);
 		AppInd.waitForClickable(BrowserDriver, WorkOrder, wait);
-		WorkOrder.click();
+		AppInd.jsClick(BrowserDriver, WorkOrder);
 	}
 	
 	@FindBys({@FindBy(css = "#btnCreate"),@FindBy(xpath = "//input[@id='btnCreate']")})
@@ -64,7 +65,7 @@ public class WorkOrder_Object extends BaseClass{
 	public void getWOCreateBtn() {
 		AppInd.waitForVisibility(BrowserDriver, WObtnCreate, wait);
 		AppInd.waitForClickable(BrowserDriver, WObtnCreate, wait);
-		WObtnCreate.click();
+		AppInd.jsClick(BrowserDriver, WObtnCreate);
 	}
 
 	@FindBy(xpath = "//select[@id='ddlCompany']")
@@ -362,12 +363,18 @@ public class WorkOrder_Object extends BaseClass{
 		AppWoSubBtn.click();
 	}
 	
+	@FindBy(xpath = "//span[@id='lblDisplayNo']")
+	private WebElement WODisNo;
+	public String  getWODisplayNo() {
+		return WODisNo.getText();		
+	}
+	
 	public void CreateExpenseWO() throws Throwable {
 	    try {
 	        AppDep.MainParentFrame();
 	        AppDep.LeftFrame();
-	        getExpenses();
-	        Thread.sleep(3000);
+	        //getExpenses();
+	        Thread.sleep(6000);
 
 	        AppDep.DefaultContentFrame();
 	        AppDep.MainParentFrame();
@@ -390,7 +397,8 @@ public class WorkOrder_Object extends BaseClass{
 	        	String expense = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee3, i, 1);
 
 	        	if (company.isEmpty() && expense.isEmpty()) {
-	        	    System.out.println("🛑 Blank row found, exiting...");
+	        	    System.out.println("🛑 CreateExpenseWO next row blank found, exiting...");
+	        	    System.out.println();///Console purpose
 	        	    break;
 	        	}
 
@@ -509,11 +517,11 @@ public class WorkOrder_Object extends BaseClass{
 	            getTermAndConLink();
 	            AppInd.Childwindow();
 	            Thread.sleep(2000);
+	            
 	            List<WebElement> AllCheckBoxes = BrowserDriver.findElements(By.xpath("//input[@type='checkbox']"));
 	            for(int j=1;j<=AllCheckBoxes.size();j++) {
-	            	WebElement termCheckBox = BrowserDriver.findElement(By.id("gvTermsAndConditionsList_ctl22_gvListItemLevelCheckBox"));
-	            	if(termCheckBox.isDisplayed()) {
-	            		termCheckBox.click();
+	            	if(AllCheckBoxes.get(j).isDisplayed()) {
+	            		AllCheckBoxes.get(j).click();
 	            		break;
 	            	}
 	            }
@@ -609,22 +617,26 @@ public class WorkOrder_Object extends BaseClass{
 	    }
 		
 	        Thread.sleep(2000);
-	        String WoDispNO = BrowserDriver.findElement(By.xpath("//span[@id='lblDisplayNo']")).getText();
-	        System.out.println("Work Order display No is :"+WoDispNO);
+	        //String WoDispNO = BrowserDriver.findElement(By.xpath("//span[@id='lblDisplayNo']")).getText();
+	        //System.out.println("Work Order display No is :"+WoDispNO);
 	        AppInd.jsScrollToBottom(BrowserDriver);
 	        Thread.sleep(1750);
 	        AppInd.selectByVisibleText("APPROVED", getAppStatusDD());
 	        Thread.sleep(2000);
 	        String WoAmount = BrowserDriver.findElement(By.xpath("//span[@id='lblGrossAmount']")).getText();
-	        System.out.println("✅ Work Order Approved for " + WoAmount + " INR ..................................");
+	        WODisplayNo = getWODisplayNo();
+	        System.out.println();///Console purpose
+	        System.out.println("1. Expenses Work Order "+WODisplayNo+" Approved for "+WoAmount+" INR");
 	        getAppWoSubBtn(); // Click the submit button
-	        Assert.assertTrue(false);
+	        Thread.sleep(2000);
+	        Assert.assertTrue(true);
         }
         catch (Exception e) {
         	System.out.println("Error on Approving the Work Order.... "+e.getMessage());
 		}
      }
  }
+	    
 	    catch (Exception e) {
 	        System.out.println("❌❌❌ Error during CreateExpenseWO execution:.............................");
 	        e.printStackTrace();

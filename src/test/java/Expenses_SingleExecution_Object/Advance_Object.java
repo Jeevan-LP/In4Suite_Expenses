@@ -338,7 +338,6 @@ public class Advance_Object extends BaseClass {
 		
 		for(int i=1;i<=Advance_Rows;i++) {
 			
-
         	String company = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee4, i, 0);
         	String expense = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee4, i, 1);
 

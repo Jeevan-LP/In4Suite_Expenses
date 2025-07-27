@@ -10,11 +10,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -44,10 +42,6 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		ExtSparkReporter.config().setDocumentTitle("In4Suite Automation Report");
 		ExtSparkReporter.config().setReportName("Expenses Module Functional Flow");
 		ExtSparkReporter.config().setTheme(Theme.STANDARD);
-		
-		Capabilities caps = ((RemoteWebDriver) erDriver).getCapabilities();
-        String browserName = caps.getBrowserName();
-        String os = System.getProperty("os.name");
         
 		ExtReports = new ExtentReports();
 		ExtReports.attachReporter(ExtSparkReporter);
@@ -56,15 +50,12 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		ExtReports.setSystemInfo("Sub Modules", "Work Order, Advance, Debit Note, Debit Note Receipt, Payment");
 		ExtReports.setSystemInfo("User Name", System.getProperty("user.name"));
 		ExtReports.setSystemInfo("Environment", "QA");
-		ExtReports.setSystemInfo("Operating System", os);
-		ExtReports.setSystemInfo("Browser", browserName);
-		/*
 		String os = TestContext.getCurrentXmlTest().getParameter("os");
 		ExtReports.setSystemInfo("Operating System", os);
 		
 		String browser = TestContext.getCurrentXmlTest().getParameter("browser");
 		ExtReports.setSystemInfo("Browser", browser);
-		*/
+		
 		List<String> IncludeGroups = TestContext.getCurrentXmlTest().getIncludedGroups();
 		if(!IncludeGroups.isEmpty()) {
 			ExtReports.setSystemInfo("Groups", IncludeGroups.toString());

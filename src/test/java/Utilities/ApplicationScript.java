@@ -2,7 +2,6 @@ package Utilities;
 
 import java.time.Duration;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class Application extends BaseClass {
+public class ApplicationScript extends BaseClass {
 
     public WebDriver browserDriver;
     public AppIndependent appInd;
@@ -27,7 +26,7 @@ public class Application extends BaseClass {
     @FindBy(xpath = "//img[@src='../images/logout-icon.svg']") public WebElement logoutBtn;
 
     // ✅ Use default constructor
-    public Application() {
+    public ApplicationScript() {
         this.browserDriver = getDriver(); // From BaseClass thread-local
         PageFactory.initElements(browserDriver, this);
 
@@ -57,7 +56,7 @@ public class Application extends BaseClass {
         System.out.println("🟢 In4Suite Login successful!");
     }
 
-    @Test(priority = 7)
+    @Test(priority = 3)
     public void logoutTest() {
         appDep.DefaultContentFrame();
         appDep.MainParentFrame();
