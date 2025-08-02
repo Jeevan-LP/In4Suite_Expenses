@@ -415,9 +415,9 @@ public class WorkOrder_Object extends BaseClass{
 	            AppInd.selectTextFieldFromExcel(data.XLFilepath, data.XlShee3, i, 4, getScopeOfWorkTxtf());
 	            Thread.sleep(2000);
 	            AppInd.selectTextFieldFromExcel(data.XLFilepath, data.XlShee3, i, 5, getContactNameTxtf());
-	            Thread.sleep(2000);
+	            Thread.sleep(3000);
 	            AppDep.selectCurrentDate(BrowserDriver, getFromDatePicker());
-	            Thread.sleep(2000);
+	            Thread.sleep(3000);
 	            AppDep.selectCurrentDate(BrowserDriver, getToDatePicker());
 	            Thread.sleep(2000);
 	           

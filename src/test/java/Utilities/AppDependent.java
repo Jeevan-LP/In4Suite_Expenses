@@ -2,8 +2,10 @@ package Utilities;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -86,33 +88,45 @@ public class AppDependent extends BaseClass{
 		    appDepDriver.switchTo().parentFrame();
 	}
 	
-	public void selectCurrentDate(WebDriver driver, WebElement dateInputField) {
+	public void selectCurrentDate(WebDriver driver, WebElement dateInputField) throws Throwable {
+		 // Step 1: Click the date input to open the calendar
         dateInputField.click();
 
-        // Step 2: Get current date
+        // Step 2: Get today's date details
         LocalDate today = LocalDate.now();
         String day = String.valueOf(today.getDayOfMonth());
-        String monthFull = today.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH); // e.g., "July"
+        String monthFull = today.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
         String year = String.valueOf(today.getYear());
 
-        // Step 3: Select month from dropdown
-        WebElement monthDropdown = driver.findElement(By.xpath("//select[@title='Change the month']"));
-        Select selectMonth = new Select(monthDropdown);
-        selectMonth.selectByVisibleText(monthFull);
+        // Step 3: Wait for month dropdown and select
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement monthDropdown = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//select[@title='Change the month']")));
+        new Select(monthDropdown).selectByVisibleText(monthFull);
 
-        // Step 4: Select year from dropdown
-        WebElement yearDropdown = driver.findElement(By.xpath("//select[@title='Change the year']"));
-        Select selectYear = new Select(yearDropdown);
-        selectYear.selectByVisibleText(year);
+        // Step 4: Wait for year dropdown and select
+        WebElement yearDropdown = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//select[@title='Change the year']")));
+        new Select(yearDropdown).selectByVisibleText(year);
 
-        // Step 5: Click the correct day cell
-        java.util.List<WebElement> dayCells = driver.findElements(By.xpath("//a[contains(@title,'Select')]"));
+        // Optional wait to let the calendar render days
+        Thread.sleep(500); // You can use WebDriverWait instead for better control
 
+        // Step 5: Find all clickable day cells
+        List<WebElement> dayCells = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                By.xpath("//a[contains(@title,'Select')]")));
+
+        // Step 6: Click the correct day
         for (WebElement cell : dayCells) {
-            if (cell.getText().equals(day)) {
-                cell.click();
+            if (cell.getText().trim().equals(day)) {
+                try {
+                    wait.until(ExpectedConditions.elementToBeClickable(cell)).click();
+                } catch (Exception e) {
+                    // Fallback: JavaScript click if normal click fails
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cell);
+                }
                 break;
             }
         }
-     }
+      }
   }

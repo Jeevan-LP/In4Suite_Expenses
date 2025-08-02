@@ -1,7 +1,9 @@
 Utilities\ZapBrowserFactory.class
 Expenses_FullExecution_Object\Advance_Object.class
+Expenses_TestCases\WorkOrder_Test.class
 Utilities\AppIndependent.class
 Expenses_FullExecution_Object\DebitNoteReceipt_Object.class
+Utilities\ApplicationScript.class
 Utilities\AppDependent.class
 Expenses_FullExecution_Object\WorkOrder_Object.class
 Expenses_SingleExecution_Object\DebitNoteReceipt_Object.class
