@@ -2,8 +2,8 @@ package Utilities;
 
 public class DataTable extends BaseClass{
 	
-		public String XLFilepath=System.getProperty("user.dir")+"/TestData/ExpensesModuleData.xlsx";
-		public String ProFilePath=System.getProperty("user.dir")+"/TestData/Credentials.properties";
+		public String XLFilepath=System.getProperty("user.dir")+"/Configuration/ExpensesModuleData.xlsx";
+		public String ProFilePath=System.getProperty("user.dir")+"/Configuration/Credentials.properties";
 		public String XlShee1="Expenses_BudgetPeriod";
 		public String XlShee2="Expenses_Budget";
 		public String XlShee3="Expenses_WorkOrder";

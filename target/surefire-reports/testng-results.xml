@@ -2,28 +2,47 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-02T11:44:56 IST" name="BatchExecutionSuite" finished-at="2025-08-02T11:55:02 IST" duration-ms="605191">
+  <suite started-at="2025-08-03T13:52:48 IST" name="BatchExecutionSuite" finished-at="2025-08-03T14:04:40 IST" duration-ms="711985">
     <groups>
-      <group name="Master">
-        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
-      </group> <!-- Master -->
-      <group name="Sanity">
-        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
-      </group> <!-- Sanity -->
-      <group name="Smoke">
-        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
-        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
-      </group> <!-- Smoke -->
+      <group name="PaymentFlow">
+        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- PaymentFlow -->
+      <group name="ExpenseModule">
+        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- ExpenseModule -->
+      <group name="WorkOrderFlow">
+        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- WorkOrderFlow -->
+      <group name="DebitNoteFlow">
+        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- DebitNoteFlow -->
+      <group name="SmokeSuite">
+        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- SmokeSuite -->
+      <group name="AdvanceFlow">
+        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- AdvanceFlow -->
+      <group name="CriticalWorkflowSuite">
+        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- CriticalWorkflowSuite -->
+      <group name="RegressionSuite2">
+        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- RegressionSuite2 -->
+      <group name="DebitNoteReceiptFlow">
+        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- DebitNoteReceiptFlow -->
+      <group name="RegressionSuite1">
+        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- RegressionSuite1 -->
     </groups>
-    <test started-at="2025-08-02T11:44:56 IST" name="Test" finished-at="2025-08-02T11:55:02 IST" duration-ms="605191">
+    <test started-at="2025-08-03T13:52:48 IST" name="Test" finished-at="2025-08-03T14:04:40 IST" duration-ms="711985">
       <class name="Expenses_TestCases.Expenses_FullTest">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:44:57 IST" name="setUp" finished-at="2025-08-02T11:45:01 IST" duration-ms="4472" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T13:52:49 IST" name="setUp" finished-at="2025-08-03T13:52:56 IST" duration-ms="7115" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,34 +56,34 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[org.testng.TestRunner@509bf2d5]]>
+                <![CDATA[org.testng.TestRunner@6971f5f4]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:45:01 IST" name="WorkOrder" finished-at="2025-08-02T11:47:43 IST" duration-ms="161635" status="PASS">
+        <test-method signature="WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T13:52:56 IST" name="WorkOrder" finished-at="2025-08-03T13:55:38 IST" duration-ms="161840" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- WorkOrder -->
-        <test-method signature="Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:47:43 IST" name="Advance" finished-at="2025-08-02T11:50:06 IST" duration-ms="143508" status="PASS">
+        <test-method signature="Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T13:55:38 IST" name="Advance" finished-at="2025-08-03T13:58:48 IST" duration-ms="189808" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Advance -->
-        <test-method signature="DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:50:06 IST" name="DebitNote" finished-at="2025-08-02T11:51:37 IST" duration-ms="90325" status="PASS">
+        <test-method signature="DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T13:58:48 IST" name="DebitNote" finished-at="2025-08-03T14:00:26 IST" duration-ms="98041" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DebitNote -->
-        <test-method signature="DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:51:37 IST" name="DebitNoteReceipt" finished-at="2025-08-02T11:52:44 IST" duration-ms="67261" status="PASS">
+        <test-method signature="DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T14:00:26 IST" name="DebitNoteReceipt" finished-at="2025-08-03T14:01:45 IST" depends-on-methods="Expenses_TestCases.Expenses_FullTest.DebitNote" duration-ms="79554" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DebitNoteReceipt -->
-        <test-method signature="Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:52:44 IST" name="Payment" finished-at="2025-08-02T11:55:01 IST" duration-ms="137185" status="PASS">
+        <test-method signature="Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T14:01:45 IST" name="Payment" finished-at="2025-08-03T14:04:40 IST" duration-ms="174801" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Payment -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Expenses_TestCases.Expenses_FullTest@6ca8564a]" started-at="2025-08-02T11:55:01 IST" name="tearDown" finished-at="2025-08-02T11:55:02 IST" duration-ms="507" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Expenses_TestCases.Expenses_FullTest@4f209819]" started-at="2025-08-03T14:04:40 IST" name="tearDown" finished-at="2025-08-03T14:04:40 IST" duration-ms="469" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

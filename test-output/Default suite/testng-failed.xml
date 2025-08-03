@@ -6,8 +6,8 @@
       <class name="Expenses_TestCases.WorkOrder_Test">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
           <include name="WorkOrderCreateTest"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- Expenses_TestCases.WorkOrder_Test -->
     </classes>

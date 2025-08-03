@@ -182,7 +182,7 @@ public class AppIndependent{
 			return Keyvalue;
 		 }
 		
-	 public Set<String> getKeyName(String FilePath) throws Throwable {
+	 public Set<String> getKeyNames(String FilePath) throws Throwable {
 			fInput=new FileInputStream(FilePath);
 			Pfile= new Properties();
 			Pfile.load(fInput);

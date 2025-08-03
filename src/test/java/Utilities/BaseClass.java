@@ -1,13 +1,17 @@
 package Utilities;
 
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -34,14 +38,48 @@ public class BaseClass {
     @Parameters({"os", "browser"})
     @BeforeClass(alwaysRun = true)
     public void setUp(@Optional("windows") String os, @Optional("chrome") String browser, ITestContext context) throws Throwable {
-        WebDriver localDriver;
+        WebDriver localDriver = null;
         
-        switch (browser.toLowerCase()) {
-        case "chrome":localDriver = new ChromeDriver();break;
-        case "edge":localDriver = new EdgeDriver();break;
-        case "firefox":localDriver = new FirefoxDriver();break;
-        default:throw new IllegalArgumentException("❌ Invalid browser: " + browser);
-    }
+        this.appInd = new AppIndependent();
+        appInd.appIndDriver = browserDriver;
+        appInd.ExpWait = expWait;
+        this.data = new DataTable();
+        //////for local environment execution
+        if(appInd.getKeyValue(data.ProFilePath, "Execution_Env").equalsIgnoreCase("local")) {
+        	switch (browser.toLowerCase()) {
+        		case "chrome":localDriver = new ChromeDriver();break;
+        		case "edge":localDriver = new EdgeDriver();break;
+        		case "firefox":localDriver = new FirefoxDriver();break;
+        		default:throw new IllegalArgumentException("❌ Invalid browser: " + browser);
+        	}
+        }
+        
+        //////for remote environment execution
+        if (appInd.getKeyValue(data.ProFilePath, "Execution_Env").equalsIgnoreCase("remote")) {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
+            // Set browser
+            switch (browser.toLowerCase()) {
+                case "chrome":capabilities.setBrowserName("chrome");break;
+                case "firefox":capabilities.setBrowserName("firefox");break;
+                case "edge":capabilities.setBrowserName("MicrosoftEdge");break;
+                default:throw new IllegalArgumentException("❌ Invalid browser: " + browser);
+            }
+
+            // Set OS/platform
+            switch (os.toLowerCase()) {
+                case "windows":capabilities.setPlatform(Platform.WIN11); break;
+                case "linux":capabilities.setPlatform(Platform.LINUX); break;   
+                case "mac":capabilities.setPlatform(Platform.MAC);break;
+                default:throw new IllegalArgumentException("❌ Invalid operating system: " + os);
+            }
+            // Accept insecure certs (optional, helps with HTTPS)
+            capabilities.setAcceptInsecureCerts(true);
+            // Create remote driver
+            localDriver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), capabilities);
+        }
+
+        
         iDriver.set(localDriver);
         browserDriver = getDriver();
 

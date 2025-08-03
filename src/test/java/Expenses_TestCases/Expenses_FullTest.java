@@ -11,7 +11,7 @@ import Expenses_FullExecution_Object.WorkOrder_Object;
 import Utilities.ApplicationScript;
 import Utilities.BaseClass;
 
-//@Listeners(Utilities.ExtentReportManager.class)
+@Listeners(Utilities.ExtentReportManager.class)
 public class Expenses_FullTest extends BaseClass{
 
 	public ApplicationScript application;
@@ -21,8 +21,7 @@ public class Expenses_FullTest extends BaseClass{
 	public DebitNoteReceipt_Object DbtNoteRecObject;
 	public Payment_Object PayObject;
 	
-	
-	@Test(priority = 2, groups = {"Sanity", "Master"})
+	@Test(priority = 2, groups = {"ExpenseModule", "WorkOrderFlow", "CriticalWorkflowSuite"})
 	public void WorkOrder() throws Throwable {
 		///Application login
 		application = new ApplicationScript();
@@ -32,25 +31,25 @@ public class Expenses_FullTest extends BaseClass{
 		WoObject.CreateExpenseWO();
 	}
 	
-	@Test(priority = 3, groups = {"Smoke", "Master"})
+	@Test(priority = 3, groups = {"ExpenseModule", "AdvanceFlow", "SmokeSuite"})
 	public void Advance() throws Throwable {
 		AdvObject = new Advance_Object(getDriver(), WoObject);
 		AdvObject.CreateAdvance();
 	}
 	
-	@Test(priority = 4, groups = {"Smoke", "Master"})
+	@Test(priority = 4, groups = {"ExpenseModule", "DebitNoteFlow", "RegressionSuite1"})
 	public void DebitNote() throws Throwable {
 		DbtNoteObject = new DebitNote_Object(getDriver(), WoObject);
 		DbtNoteObject.CreateDebitNote();
 	}
 	
-	@Test(priority = 5, groups = {"Smoke", "Master"})
+	@Test(priority = 5, groups = {"ExpenseModule", "DebitNoteReceiptFlow", "RegressionSuite2"}, dependsOnMethods = {"DebitNote"})
 	public void DebitNoteReceipt() throws Throwable {
 		DbtNoteRecObject = new DebitNoteReceipt_Object(getDriver(), DbtNoteObject);
 		DbtNoteRecObject.CreateDebitNoteReceipt();
 	}
 	
-	@Test(priority = 6, groups = {"Smoke", "Master"})
+	@Test(priority = 6, groups = {"ExpenseModule", "PaymentFlow", "CriticalWorkflowSuite"})
 	public void Payment() throws Throwable {
 		PayObject = new Payment_Object(getDriver(), WoObject, AdvObject, DbtNoteObject);
 		PayObject.CreatePayment();

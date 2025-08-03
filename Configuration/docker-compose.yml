@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+  # Selenium Hub
+  selenium-hub:
+    image: selenium/hub:4.4.0
+    container_name: selenium-hub
+    ports:
+      - "5555:4444"  # Exposes the Hub on port 5555
+    networks:
+      - grid
+    environment:
+      - GRID_MAX_SESSION=5  # Allow up to 5 sessions at once
+    restart: always
+
+  # Chrome Node
+  chrome-node:
+    image: selenium/node-chrome:114.0
+    container_name: chrome-node
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_MAX_SESSIONS=5  # Allow up to 5 sessions on this node
+    ports:
+      - "5900:5900"  # Exposes VNC port for debugging (optional)
+    networks:
+      - grid
+    depends_on:
+      - selenium-hub
+    restart: always
+
+  # Firefox Node
+  firefox-node:
+    image: selenium/node-firefox:114.0
+    container_name: firefox-node
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_MAX_SESSIONS=5  # Allow up to 5 sessions on this node
+    ports:
+      - "5901:5900"  # Exposes VNC port for debugging (optional)
+    networks:
+      - grid
+    depends_on:
+      - selenium-hub
+    restart: always
+
+  # Edge Node
+  edge-node:
+    image: selenium/node-edge:114.0
+    container_name: edge-node
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_MAX_SESSIONS=5  # Allow up to 5 sessions on this node
+    ports:
+      - "5902:5900"  # Exposes VNC port for debugging (optional)
+    networks:
+      - grid
+    depends_on:
+      - selenium-hub
+    restart: always
+
+networks:
+  grid:
+    driver: bridge

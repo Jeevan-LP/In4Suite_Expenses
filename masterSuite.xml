@@ -26,7 +26,7 @@
     <parameter name="browser" value="chrome"/>
     <groups>
   		<run>
-  			<include name="Master"></include>
+  			<include name="ExpenseModule"></include>
   		</run>
   	</groups>
     <classes>

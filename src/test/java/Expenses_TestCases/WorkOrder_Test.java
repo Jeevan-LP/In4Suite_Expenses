@@ -1,12 +1,13 @@
 package Expenses_TestCases;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Expenses_SingleExecution_Object.WorkOrder_Object;
 import Utilities.ApplicationScript;
 import Utilities.BaseClass;
 
-//@Listeners(Utilities.ExtentReportManager.class)
+@Listeners(Utilities.ExtentReportManager.class)
 public class WorkOrder_Test extends BaseClass{
 
 	public ApplicationScript application;

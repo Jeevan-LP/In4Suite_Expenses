@@ -56,7 +56,7 @@ public class ApplicationScript extends BaseClass {
         System.out.println("🟢 In4Suite Login successful!");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 7)
     public void logoutTest() {
         appDep.DefaultContentFrame();
         appDep.MainParentFrame();

@@ -3,6 +3,7 @@ package Utilities;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +11,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.ImageHtmlEmail;
+import org.apache.commons.mail.resolver.DataSourceUrlResolver;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +40,7 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
         ReportName = "TestReport_" + timestamp + ".html";
 
-        String reportPath = System.getProperty("user.dir") + File.separator + "Reports" + File.separator + ReportName;
+        String reportPath = System.getProperty("user.dir") + File.separator + "Results\\Reports" + File.separator + ReportName;
         ExtSparkReporter = new ExtentSparkReporter(reportPath);
 	
 		ExtSparkReporter.config().setDocumentTitle("In4Suite Automation Report");
@@ -81,7 +85,7 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
             String testName = result.getName();
             TakesScreenshot ts = (TakesScreenshot) erDriver;
             File sourceFile = ts.getScreenshotAs(OutputType.FILE);
-            String screenshotPath = System.getProperty("user.dir") + File.separator + "ScreenShots" + File.separator + testName + "_" + timeStamp + ".png";
+            String screenshotPath = System.getProperty("user.dir") + File.separator + "Results\\ScreenShots" + File.separator + testName + "_" + timeStamp + ".png";
             File targetFile = new File(screenshotPath);
             FileUtils.copyFile(sourceFile, targetFile);
 
@@ -107,7 +111,7 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		ExtReports.flush();
 		
 		try {
-            File reportFile = new File(System.getProperty("user.dir") + File.separator + "Reports" + File.separator + ReportName);
+            File reportFile = new File(System.getProperty("user.dir") + File.separator + "Results\\Reports" + File.separator + ReportName);
             Desktop.getDesktop().browse(reportFile.toURI());
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,7 +119,7 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 
 		/*
 		try {
-			URL url = new URL("file:///"+System.getProperty("user.dir")+"//Reports//"+ReportName);
+			URL url = new URL("file:///"+System.getProperty("user.dir")+"Results\\Reports"+ReportName);
 			ImageHtmlEmail email = new ImageHtmlEmail();
 			email.setDataSourceResolver(new DataSourceUrlResolver(url));
 			email.setHostName("smtp.gmail.com");
