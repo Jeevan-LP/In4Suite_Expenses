@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="FullExecutionSuite" thread-count="5">
+
+  <!-- ✅ Define listener once at suite level -->
+  <listeners>
+    <listener class-name="Utilities.ExtentReportManager"/>
+  </listeners> 
+  
+  <test thread-count="5" name="Test">
+  	   <parameter name="os" value="windows"/>	
+       <parameter name="browser" value="chrome"/>
+  
+    <classes>
+      <class name="Expenses_TestCases.Expenses_FullTest"/>
+      <class name="Expenses_TestCases.WorkOrder_Test"/>
+      <class name="Expenses_TestCases.Advance_Test"/>
+      <class name="Expenses_TestCases.DebitNoteAndReceipt_Test"/>
+      <class name="Expenses_TestCases.Payment_Test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
