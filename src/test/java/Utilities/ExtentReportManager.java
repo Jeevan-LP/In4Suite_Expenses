@@ -116,26 +116,38 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 		/*
 		try {
-			URL url = new URL("file:///"+System.getProperty("user.dir")+"Results\\Reports"+ReportName);
-			ImageHtmlEmail email = new ImageHtmlEmail();
-			email.setDataSourceResolver(new DataSourceUrlResolver(url));
-			email.setHostName("smtp.gmail.com");
-			email.setSmtpPort(465);
-			email.setAuthenticator(new DefaultAuthenticator("jeevanpgowda27@gmail.com", "27-09-2001"));
-			email.setSSLOnConnect(true);
-			email.setFrom("jeevangowda016@gmail.com");
-			email.setSubject("Test Results");
-			email.setMsg("Please find the attached file....");
-			email.addTo("jeevangowda016@gmail.com");
-			email.attach(url, "Extent Report", "Please check test report....");
-			email.send();
-			}
-		catch (Exception e) {
-			e.printStackTrace();
-		}*/
+		    // Correct report URL
+		    URL url = new URL("file:///" + System.getProperty("user.dir") + "\\Results\\Reports\\" + ReportName);
+
+		    ImageHtmlEmail email = new ImageHtmlEmail();
+		    email.setDataSourceResolver(new DataSourceUrlResolver(url));
+		    email.setHostName("smtp.gmail.com");
+		    email.setSmtpPort(465);
+		    
+		    // ✅ Use your App Password here (not your Gmail password)
+		    email.setAuthenticator(new DefaultAuthenticator("jeevanpgowda27@gmail.com", "ylux szam gvmf wpcy"));
+		    
+		    email.setSSLOnConnect(true);
+		    email.setFrom("jeevanpgowda27@gmail.com");
+		    email.setSubject("Automation Test Results");
+		    email.setMsg("In4Suite - Expenses Module | Automation Test Results | QA");
+		    email.addTo("jeevangowda016@gmail.com");
+		    
+		    // Attach the HTML report
+		    email.attach(url, "Extent Report", "Please check test report....");
+
+		    // Send the email
+		    email.send();
+
+		    System.out.println("✅ Email sent successfully!");
+
+		} catch (Exception e) {
+		    e.printStackTrace();
+		    System.err.println("❌ Failed to send email: " + e.getMessage());
+		}
+		*/
 	}
 
 }
