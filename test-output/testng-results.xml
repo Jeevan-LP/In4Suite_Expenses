@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-03T23:32:18 IST" name="Failed suite [Failed suite [FullExecutionSuite]]" finished-at="2025-08-03T23:35:54 IST" duration-ms="215698">
+  <suite started-at="2025-10-24T19:11:01 IST" name="Default suite" finished-at="2025-10-24T19:27:11 IST" duration-ms="970174">
     <groups>
+      <group name="PaymentFlow">
+        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- PaymentFlow -->
+      <group name="ExpenseModule">
+        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- ExpenseModule -->
+      <group name="WorkOrderFlow">
+        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- WorkOrderFlow -->
+      <group name="DebitNoteFlow">
+        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- DebitNoteFlow -->
+      <group name="SmokeSuite">
+        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- SmokeSuite -->
+      <group name="AdvanceFlow">
+        <method signature="Expenses_FullTest.Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="Advance" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- AdvanceFlow -->
+      <group name="CriticalWorkflowSuite">
+        <method signature="Expenses_FullTest.WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="WorkOrder" class="Expenses_TestCases.Expenses_FullTest"/>
+        <method signature="Expenses_FullTest.Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="Payment" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- CriticalWorkflowSuite -->
+      <group name="RegressionSuite2">
+        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- RegressionSuite2 -->
+      <group name="DebitNoteReceiptFlow">
+        <method signature="Expenses_FullTest.DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="DebitNoteReceipt" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- DebitNoteReceiptFlow -->
+      <group name="RegressionSuite1">
+        <method signature="Expenses_FullTest.DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" name="DebitNote" class="Expenses_TestCases.Expenses_FullTest"/>
+      </group> <!-- RegressionSuite1 -->
     </groups>
-    <test started-at="2025-08-03T23:32:18 IST" name="Test(failed)(failed)" finished-at="2025-08-03T23:35:54 IST" duration-ms="215698">
-      <class name="Expenses_TestCases.DebitNoteAndReceipt_Test">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:Expenses_TestCases.DebitNoteAndReceipt_Test@5c90e579]" started-at="2025-08-03T23:32:18 IST" name="setUp" finished-at="2025-08-03T23:32:22 IST" duration-ms="4028" status="PASS">
+    <test started-at="2025-10-24T19:11:01 IST" name="Default test" finished-at="2025-10-24T19:27:11 IST" duration-ms="970174">
+      <class name="Expenses_TestCases.Expenses_FullTest">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String,org.testng.ITestContext)[pri:0, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:11:01 IST" name="setUp" finished-at="2025-10-24T19:11:09 IST" duration-ms="8069" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -21,22 +56,38 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[org.testng.TestRunner@678586f0]]>
+                <![CDATA[org.testng.TestRunner@3bbc8c82]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="DebitNoteAndReceiptCreateTest()[pri:2, instance:Expenses_TestCases.DebitNoteAndReceipt_Test@5c90e579]" started-at="2025-08-03T23:32:22 IST" name="DebitNoteAndReceiptCreateTest" finished-at="2025-08-03T23:35:53 IST" duration-ms="210780" status="PASS">
+        <test-method signature="WorkOrder()[pri:2, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:11:09 IST" name="WorkOrder" finished-at="2025-10-24T19:14:45 IST" duration-ms="215671" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DebitNoteAndReceiptCreateTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Expenses_TestCases.DebitNoteAndReceipt_Test@5c90e579]" started-at="2025-08-03T23:35:53 IST" name="tearDown" finished-at="2025-08-03T23:35:54 IST" duration-ms="357" status="PASS">
+        </test-method> <!-- WorkOrder -->
+        <test-method signature="Advance()[pri:3, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:14:45 IST" name="Advance" finished-at="2025-10-24T19:18:38 IST" duration-ms="233064" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Advance -->
+        <test-method signature="DebitNote()[pri:4, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:18:38 IST" name="DebitNote" finished-at="2025-10-24T19:21:02 IST" duration-ms="144189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DebitNote -->
+        <test-method signature="DebitNoteReceipt()[pri:5, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:21:02 IST" name="DebitNoteReceipt" finished-at="2025-10-24T19:22:18 IST" depends-on-methods="Expenses_TestCases.Expenses_FullTest.DebitNote" duration-ms="75960" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DebitNoteReceipt -->
+        <test-method signature="Payment()[pri:6, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:22:18 IST" name="Payment" finished-at="2025-10-24T19:27:09 IST" duration-ms="291403" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Payment -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Expenses_TestCases.Expenses_FullTest@63070bab]" started-at="2025-10-24T19:27:09 IST" name="tearDown" finished-at="2025-10-24T19:27:11 IST" duration-ms="1293" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Expenses_TestCases.DebitNoteAndReceipt_Test -->
-    </test> <!-- Test(failed)(failed) -->
-  </suite> <!-- Failed suite [Failed suite [FullExecutionSuite]] -->
+      </class> <!-- Expenses_TestCases.Expenses_FullTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

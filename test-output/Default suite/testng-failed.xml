@@ -3,13 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Expenses_TestCases.WorkOrder_Test">
+      <class name="Expenses_TestCases.Expenses_FullTest">
         <methods>
+          <include name="WorkOrder"/>
+          <include name="Payment"/>
           <include name="setUp"/>
-          <include name="WorkOrderCreateTest"/>
+          <include name="DebitNoteReceipt"/>
+          <include name="Advance"/>
+          <include name="DebitNote"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- Expenses_TestCases.WorkOrder_Test -->
+      </class> <!-- Expenses_TestCases.Expenses_FullTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
