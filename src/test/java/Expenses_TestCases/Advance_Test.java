@@ -19,14 +19,14 @@ public class Advance_Test extends BaseClass {
 		
 		///Application login
 		application = new ApplicationScript();
-		application.loginTest();
+		//application.loginTest();
 		
 		//AdvObject = new Advance_Object(getDriver());
 		//AdvObject.CreateAdvance();
-		Thread.sleep(3000);
-		
+		Thread.sleep(1000);
+		System.out.println("In4 suite login page displayed--------------------------");
+		Thread.sleep(1000);
 		browserDriver.quit();
-		System.out.println("IN4 Suite Browser quit");
 		///Application logout
 		//application.logoutTest();
 	}
