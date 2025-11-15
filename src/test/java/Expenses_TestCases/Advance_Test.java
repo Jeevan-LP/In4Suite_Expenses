@@ -1,5 +1,6 @@
 package Expenses_TestCases;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -20,11 +21,14 @@ public class Advance_Test extends BaseClass {
 		application = new ApplicationScript();
 		application.loginTest();
 		
-		AdvObject = new Advance_Object(getDriver());
-		AdvObject.CreateAdvance();
+		//AdvObject = new Advance_Object(getDriver());
+		//AdvObject.CreateAdvance();
+		Thread.sleep(3000);
 		
+		browserDriver.quit();
+		System.out.println("IN4 Suite Browser quit");
 		///Application logout
-		application.logoutTest();
+		//application.logoutTest();
 	}
 	
 }
