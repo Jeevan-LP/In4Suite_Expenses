@@ -138,6 +138,7 @@ ipeline {
                 subject: "BUILD SUCCESS – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 mimeType: 'text/html',
                 body: """
+		<b><h2 style="color:green;">In4 Suite Automation Build - SUCCESS</h2></b><br>
                     Hello Team,<br><br>
 
                     The latest automation build has been executed. Please find the build summary below:<br><br>
@@ -167,6 +168,7 @@ ipeline {
                 subject: "BUILD FAILED – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 mimeType: 'text/html',
                 body: """
+		<b><h2 style="color:red;">In4 Suite Automation Build - FAILED</h2></b><br>
                     Hello Team,<br><br>
 
                     The latest automation build has failed. Please find the build summary below:<br><br>
