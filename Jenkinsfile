@@ -1,0 +1,196 @@
+p
+
+ipeline {
+    agent any
+
+    tools {
+        maven 'MVN'
+        jdk   'JAVA'
+    }
+
+    /* ---------------------------
+       🔹 Jenkins Job Parameters
+       --------------------------- */
+    parameters {
+        choice(name: 'ENV_NAME', choices: ['QA', 'STAGE', 'UAT'], description: 'Select Environment')
+        choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Choose Browser')
+        choice(name: 'SUITE', choices: ['smoke', 'regression'], description: 'Select Test Suite')
+        string(name: 'RUN_BY', defaultValue: 'Jeevan Gowda', description: 'Who triggered the build?')
+    }
+
+    environment {
+        GIT_REPO    = "https://github.com/Jeevan-LP/In4Suite_Expenses.git"
+        GIT_BRANCH  = "main"
+        REPORT_PATH = "target/allure-results"
+
+        // EMAIL VARIABLES
+        MAIL_FROM   = "jeevanpgowda27@gmail.com"
+        MAIL_TO     = "jeevanpgowda27@gmail.com, jeevangowda016@gmail.com"
+        
+        // Allure custom values
+        Execution_Environment = "${params.ENV_NAME}"
+        Browser               = "${params.BROWSER}"
+        Triggered_By          = "${params.RUN_BY}"
+    }
+
+    options {
+        timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        ansiColor('xterm')
+    }
+
+    stages {
+
+        /* ---------------------------------------------------------
+           Stage 1: Checkout Code
+        --------------------------------------------------------- */
+        stage('Checkout Code From Git Hub') {
+            steps {
+                echo "Checking out source code from GitHub ${GIT_REPO} repository >>> ${GIT_BRANCH} branch....."
+                git branch: "${GIT_BRANCH}",
+                    credentialsId: 'git-creds',
+                    url: "${GIT_REPO}"
+            }
+        }
+
+        /* ---------------------------------------------------------
+           Stage 2: Prepare Allure Environment File
+        --------------------------------------------------------- */
+        stage('Prepare Allure Environment File') {
+            steps {
+                echo "Preparing Allure environment.properties file....."
+                script {
+                    writeFile file: "${REPORT_PATH}/environment.properties", text: """
+                            Execution_Environment=${Execution_Environment}
+                            Browser=${Browser}
+                            Triggered_By=${Triggered_By}
+                            Suite=${params.SUITE}
+                            Build_URL=${env.BUILD_URL}
+                            Build_Number=${env.BUILD_NUMBER}
+                            """
+                }
+            }
+        }
+
+        /* ---------------------------------------------------------
+           Stage 3: Build Framework
+        --------------------------------------------------------- */
+        stage('Build Framework') {
+            steps {
+                echo "Building framework....."
+                bat "mvn clean install -DskipTests"
+            }
+        }
+
+        /* ---------------------------------------------------------
+           Stage 4: Execute TestNG
+        --------------------------------------------------------- */
+        stage('Run TestNG Tests') {
+            steps {
+                echo "Running TestNG suite: ${params.SUITE}....."
+                bat "mvn test -DsuiteXmlFile=testng.xml"
+            }
+        }
+
+        /* ---------------------------------------------------------
+           Stage 5: Allure Report
+        --------------------------------------------------------- */
+        stage('Generate Allure Report') {
+            steps {
+                echo "Generating Allure Report....."
+                allure([
+                    includeProperties: true,
+                    results: [[path: "${REPORT_PATH}"]],
+                    properties: [
+                        [key: 'Execution_Environment', value: "${Execution_Environment}"],
+                        [key: 'Browser', value: "${Browser}"],
+                        [key: 'Suite', value: "${params.SUITE}"],
+                        [key: 'Triggered_By', value: "${Triggered_By}"],
+                        [key: 'Build_URL', value: "${env.BUILD_URL}"],
+                        [key: 'Build_Number', value: "${env.BUILD_NUMBER}"]
+                    ]
+                ])
+            }
+        }
+
+        /* ---------------------------------------------------------
+           Stage 6: Archive Test Artifacts
+        --------------------------------------------------------- */
+        stage('Archive Test Artifacts') {
+            steps {
+                echo "Archiving test reports..."
+                junit allowEmptyResults: true, testResults: "target/surefire-reports/*.xml"
+                archiveArtifacts artifacts: "target/**/*.*", allowEmptyArchive: true
+            }
+        }
+    }
+
+    /* ---------------------------------------------------------
+       POST ACTIONS (EMAIL)
+    --------------------------------------------------------- */
+    post {
+
+        success {
+            echo "✔ Build Successful"
+            emailext(
+                from: "${MAIL_FROM}",
+                to: "${MAIL_TO}",
+                subject: "BUILD SUCCESS – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                mimeType: 'text/html',
+                body: """
+                    Hello Team,<br><br>
+
+                    The latest automation build has been executed. Please find the build summary below:<br><br>
+
+                    <b> Project :</b> ${env.JOB_NAME}<br>
+                    <b> Environment :</b> ${Execution_Environment}<br>
+                    <b> Browser :</b> ${Browser}<br>
+                    <b> Triggered By :</b> ${Triggered_By}<br>
+                    <b> Test Suite :</b> ${params.SUITE}<br>
+                    <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
+                    <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
+                    <b> Allure Report :</b> <a href="${env.BUILD_URL}allure/">Click here</a><br><br>
+
+                        Regards,<br>
+                        <b>Jeevan L P<br>
+                        Software Test Engineer</b>
+                        """,
+                attachLog: true
+            )
+        }
+
+        failure {
+            echo "❌ Build Failed"
+            emailext(
+                from: "${MAIL_FROM}",
+                to: "${MAIL_TO}",
+                subject: "BUILD FAILED – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                mimeType: 'text/html',
+                body: """
+                    Hello Team,<br><br>
+
+                    The latest automation build has failed. Please find the build summary below:<br><br>
+
+                    <b> Project :</b> ${env.JOB_NAME}<br>
+                    <b> Environment :</b> ${Execution_Environment}<br>
+                    <b> Browser :</b> ${Browser}<br>
+                    <b> Triggered By :</b> ${Triggered_By}<br>
+                    <b> Test Suite :</b> ${params.SUITE}<br>
+                    <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
+                    <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
+                    <b> Allure Report :</b> <a href="${env.BUILD_URL}allure/">Click here</a><br><br>
+
+                        Regards,<br>
+                        <b>Jeevan L P<br>
+                        Software Test Engineer</b>
+                        """,
+                attachLog: true
+            )
+        }
+
+        always {
+            echo "Cleaning the workspace....."
+            cleanWs()
+        }
+    }
+}
