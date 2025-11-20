@@ -127,7 +127,7 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		    email.setSmtpPort(465);
 		    
 		    // ✅ Use your App Password here (not your Gmail password)
-		    email.setAuthenticator(new DefaultAuthenticator("jeevanpgowda27@gmail.com", "ylux szam gvmf wpcy"));
+		    email.setAuthenticator(new DefaultAuthenticator("jeevanpgowda27@gmail.com", "tixo wrez bxne otnp"));
 		    
 		    email.setSSLOnConnect(true);
 		    email.setFrom("jeevanpgowda27@gmail.com");
