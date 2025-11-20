@@ -143,6 +143,10 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;BatchExecutionSuite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;Utilities.ExtentReportManager&quot;/&gt;
+    &lt;listener class-name=&quot;io.qameta.allure.testng.AllureTestNg&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot; verbose=&quot;0&quot;&gt;
     &lt;parameter name=&quot;os&quot; value=&quot;windows&quot;/&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
@@ -191,7 +195,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'AdvanceCreateTest')
 data.setCell(0, 2, 'Expenses_TestCases.Advance_Test')
-data.setCell(0, 3, 2500);
+data.setCell(0, 3, 2493);
 window.suiteTableData['BatchExecutionSuite']= { tableData: data, tableDiv: 'times-div-BatchExecutionSuite'}
 return data;
 }
@@ -224,16 +228,16 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Expenses_TestCases.Advance_Test</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUp(windows, chrome, org.testng.TestRunner@5ef0d29e)</span>
+                <span class="method-name">setUp(windows, chrome, org.testng.TestRunner@66213a0d)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">AdvanceCreateTest</span>
-                <span class="method-start">6791 ms</span>
+                <span class="method-start">8775 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">9297 ms</span>
+                <span class="method-start">11459 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

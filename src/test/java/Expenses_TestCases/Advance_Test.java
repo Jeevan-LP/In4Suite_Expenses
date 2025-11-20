@@ -17,8 +17,8 @@ public class Advance_Test extends BaseClass {
 	public void AdvanceCreateTest() throws Throwable {
 		
 		///Application login
-		//application = new ApplicationScript();
-		//application.loginTest();
+		application = new ApplicationScript();
+		application.loginTest();
 		
 		//AdvObject = new Advance_Object(getDriver());
 		//AdvObject.CreateAdvance();

@@ -19,13 +19,12 @@ pipeline {
     environment {
         GIT_REPO    = "https://github.com/Jeevan-LP/In4Suite_Expenses.git"
         GIT_BRANCH  = "main"
-        REPORT_PATH = "target/allure-results"
 
         // EMAIL VARIABLES
         MAIL_FROM   = "jeevanpgowda27@gmail.com"
         MAIL_TO     = "jeevanpgowda27@gmail.com, jeevangowda016@gmail.com"
-        
-        // Allure custom values
+
+        // Extent Report Custom Values
         Execution_Environment = "${params.ENV_NAME}"
         Browser               = "${params.BROWSER}"
         Triggered_By          = "${params.RUN_BY}"
@@ -44,7 +43,7 @@ pipeline {
         --------------------------------------------------------- */
         stage('Checkout Code From Git Hub') {
             steps {
-                echo "Checking out source code from GitHub ${GIT_REPO} repository >>> ${GIT_BRANCH} branch....."
+                echo "Checking out source code from GitHub ${GIT_REPO} >>> branch ${GIT_BRANCH}"
                 git branch: "${GIT_BRANCH}",
                     credentialsId: 'git-creds',
                     url: "${GIT_REPO}"
@@ -52,26 +51,7 @@ pipeline {
         }
 
         /* ---------------------------------------------------------
-           Stage 2: Prepare Allure Environment File
-        --------------------------------------------------------- */
-        stage('Prepare Allure Environment File') {
-            steps {
-                echo "Preparing Allure environment.properties file....."
-                script {
-                    writeFile file: "${REPORT_PATH}/environment.properties", text: """
-                            Execution_Environment=${Execution_Environment}
-                            Browser=${Browser}
-                            Triggered_By=${Triggered_By}
-                            Suite=${params.SUITE}
-                            Build_URL=${env.BUILD_URL}
-                            Build_Number=${env.BUILD_NUMBER}
-                            """
-                }
-            }
-        }
-
-        /* ---------------------------------------------------------
-           Stage 3: Build Framework
+           Stage 2: Build Framework
         --------------------------------------------------------- */
         stage('Build Framework') {
             steps {
@@ -81,7 +61,7 @@ pipeline {
         }
 
         /* ---------------------------------------------------------
-           Stage 4: Execute TestNG
+           Stage 3: Execute TestNG
         --------------------------------------------------------- */
         stage('Run TestNG Tests') {
             steps {
@@ -91,28 +71,28 @@ pipeline {
         }
 
         /* ---------------------------------------------------------
-           Stage 5: Allure Report
+           Stage 4: Publish Extent Report (UPDATED)
         --------------------------------------------------------- */
-        stage('Generate Allure Report') {
+        stage('Publish Extent Report') {
             steps {
-                echo "Generating Allure Report....."
-                allure([
-                    includeProperties: true,
-                    results: [[path: "${REPORT_PATH}"]],
-                    properties: [
-                        [key: 'Execution_Environment', value: "${Execution_Environment}"],
-                        [key: 'Browser', value: "${Browser}"],
-                        [key: 'Suite', value: "${params.SUITE}"],
-                        [key: 'Triggered_By', value: "${Triggered_By}"],
-                        [key: 'Build_URL', value: "${env.BUILD_URL}"],
-                        [key: 'Build_Number', value: "${env.BUILD_NUMBER}"]
-                    ]
+                echo "Publishing Extent Report....."
+
+                // Archive Extent HTML reports from the correct folder
+                archiveArtifacts artifacts: "Results/Reports/*.html", allowEmptyArchive: false
+
+                // Publish Extent report on Jenkins dashboard
+                publishHTML(target: [
+                    reportDir: 'Results/Reports',
+                    reportFiles: '*.html',
+                    reportName: 'Extent Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true
                 ])
             }
         }
 
         /* ---------------------------------------------------------
-           Stage 6: Archive Test Artifacts
+           Stage 5: Archive Test Artifacts
         --------------------------------------------------------- */
         stage('Archive Test Artifacts') {
             steps {
@@ -148,7 +128,7 @@ pipeline {
                     <b> Test Suite :</b> ${params.SUITE}<br>
                     <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
                     <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
-                    <b> Allure Report :</b> <a href="${env.BUILD_URL}allure/">Click here</a><br><br>
+                    <b> Extent Report :</b> <a href="${env.BUILD_URL}Extent_Report/">Click here</a><br><br>
 
                         Regards,<br>
                         <b>Jeevan L P<br>
@@ -178,7 +158,7 @@ pipeline {
                     <b> Test Suite :</b> ${params.SUITE}<br>
                     <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
                     <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
-                    <b> Allure Report :</b> <a href="${env.BUILD_URL}allure/">Click here</a><br><br>
+                    <b> Extent Report :</b> <a href="${env.BUILD_URL}Extent_Report/">Click here</a><br><br>
 
                         Regards,<br>
                         <b>Jeevan L P<br>
