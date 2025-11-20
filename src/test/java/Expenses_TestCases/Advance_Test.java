@@ -21,13 +21,13 @@ public class Advance_Test extends BaseClass {
 		application = new ApplicationScript();
 		application.loginTest();
 		
-		AdvObject = new Advance_Object(getDriver());
-		AdvObject.CreateAdvance();
-		/*
+		//AdvObject = new Advance_Object(getDriver());
+		//AdvObject.CreateAdvance();
+		
 		Thread.sleep(1000);
 		System.out.println("In4 suite login page displayed--------------------------");
 		Thread.sleep(1000);
-		browserDriver.quit();*/
+		browserDriver.quit();
 		///Application logout
 		//application.logoutTest();
 	}

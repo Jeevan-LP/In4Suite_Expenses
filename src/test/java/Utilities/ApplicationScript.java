@@ -22,7 +22,7 @@ public class ApplicationScript extends BaseClass {
     @FindBy(id = "txtLoginId") public WebElement login;
     @FindBy(id = "txtPassword") public WebElement password;
     @FindBy(id = "cmbLogin") public WebElement loginBtn;
-    @FindBy(id = "btnYesAppu") public WebElement yesBtn;
+    @FindBy(id = "btnYes") public WebElement yesBtn;
     @FindBy(xpath = "//img[@src='../images/logout-icon.svg']") public WebElement logoutBtn;
 
     // ✅ Use default constructor
