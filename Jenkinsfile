@@ -131,7 +131,7 @@ ipeline {
     post {
 
         success {
-            echo "✔ Build Successful"
+            echo "✔ Build Successful....."
             emailext(
                 from: "${MAIL_FROM}",
                 to: "${MAIL_TO}",
@@ -161,7 +161,7 @@ ipeline {
         }
 
         failure {
-            echo "❌ Build Failed"
+            echo "❌ Build Failed....."
             emailext(
                 from: "${MAIL_FROM}",
                 to: "${MAIL_TO}",
