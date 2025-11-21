@@ -109,64 +109,72 @@ pipeline {
     post {
 
         success {
-            echo "✔ Build Successful....."
-            emailext(
-                from: "${MAIL_FROM}",
-                to: "${MAIL_TO}",
-                subject: "BUILD SUCCESS – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                mimeType: 'text/html',
-                body: """
-		<b><h2 style="color:green;">In4 Suite Automation Build - SUCCESS</h2></b><br>
-                    Hello Team,<br><br>
+    echo "✔ Build Successful....."
+    emailext(
+        from: "${MAIL_FROM}",
+        to: "${MAIL_TO}",
+        subject: "BUILD SUCCESS – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+        mimeType: 'text/html',
+        body: """
+            <b><h2 style="color:green;">In4 Suite Automation Build - SUCCESS</h2></b><br>
+            Hello Team,<br><br>
 
-                    The latest automation build has been executed. Please find the build summary below:<br><br>
+            The latest automation build has been executed. Please find the build summary below:<br><br>
 
-                    <b> Project :</b> ${env.JOB_NAME}<br>
-                    <b> Environment :</b> ${Execution_Environment}<br>
-                    <b> Browser :</b> ${Browser}<br>
-                    <b> Triggered By :</b> ${Triggered_By}<br>
-                    <b> Test Suite :</b> ${params.SUITE}<br>
-                    <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
-                    <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
-                    <b> Extent Report :</b> <a href="${env.BUILD_URL}Extent_Report/">Click here</a><br><br>
+            <b> Project :</b> ${env.JOB_NAME}<br>
+            <b> Environment :</b> ${Execution_Environment}<br>
+            <b> Browser :</b> ${Browser}<br>
+            <b> Triggered By :</b> ${Triggered_By}<br>
+            <b> Test Suite :</b> ${params.SUITE}<br>
+            <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
+            <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
+            <b> Extent Report :</b> <a href="${env.BUILD_URL}Extent_Report/">Click here</a><br><br>
 
-                        Regards,<br>
-                        <b>Jeevan L P<br>
-                        Software Test Engineer</b>
-                        """,
-                attachLog: true
-            )
-        }
+            <h3><strong>Build Console Log Details Summary</strong></h3>
+            <pre>${BUILD_LOG}</pre>
 
-        failure {
-            echo "❌ Build Failed....."
-            emailext(
-                from: "${MAIL_FROM}",
-                to: "${MAIL_TO}",
-                subject: "BUILD FAILED – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                mimeType: 'text/html',
-                body: """
-		<b><h2 style="color:red;">In4 Suite Automation Build - FAILED</h2></b><br>
-                    Hello Team,<br><br>
+            Regards,<br>
+            <b>Jeevan L P<br>
+            Software Test Engineer</b>
+        """,
+        attachmentsPattern: "Results/Reports/*.html",   // << ADD THIS
+        attachLog: true                                  // << ADD THIS
+    )
+}
 
-                    The latest automation build has failed. Please find the build summary below:<br><br>
+failure {
+    echo "❌ Build Failed....."
+    emailext(
+        from: "${MAIL_FROM}",
+        to: "${MAIL_TO}",
+        subject: "BUILD FAILED – ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+        mimeType: 'text/html',
+        body: """
+            <b><h2 style="color:red;">In4 Suite Automation Build - FAILED</h2></b><br>
+            Hello Team,<br><br>
 
-                    <b> Project :</b> ${env.JOB_NAME}<br>
-                    <b> Environment :</b> ${Execution_Environment}<br>
-                    <b> Browser :</b> ${Browser}<br>
-                    <b> Triggered By :</b> ${Triggered_By}<br>
-                    <b> Test Suite :</b> ${params.SUITE}<br>
-                    <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
-                    <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
-                    <b> Extent Report :</b> <a href="${env.BUILD_URL}Extent_Report/">Click here</a><br><br>
+            The latest automation build has failed. Please find the build summary below:<br><br>
 
-                        Regards,<br>
-                        <b>Jeevan L P<br>
-                        Software Test Engineer</b>
-                        """,
-                attachLog: true
-            )
-        }
+            <b> Project :</b> ${env.JOB_NAME}<br>
+            <b> Environment :</b> ${Execution_Environment}<br>
+            <b> Browser :</b> ${Browser}<br>
+            <b> Triggered By :</b> ${Triggered_By}<br>
+            <b> Test Suite :</b> ${params.SUITE}<br>
+            <b> Build Status :</b> <b>${currentBuild.currentResult}</b><br>
+            <b> Build URL :</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a><br>
+            <b> Extent Report :</b> <a href="${env.BUILD_URL}Extent_Report/">Click here</a><br><br>
+
+            <h3><strong>Build Console Log Details Summary</strong></h3>
+            <pre>${BUILD_LOG}</pre>
+
+            Regards,<br>
+            <b>Jeevan L P<br>
+            Software Test Engineer</b>
+        """,
+        attachmentsPattern: "Results/Reports/*.html",   // << ADD THIS
+        attachLog: true                                  // << ADD THIS
+    )
+}
 
         always {
             echo "Cleaning the workspace....."
