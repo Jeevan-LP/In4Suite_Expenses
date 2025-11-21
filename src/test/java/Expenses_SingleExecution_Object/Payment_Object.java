@@ -348,7 +348,7 @@ public class Payment_Object {
         	String expense = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee4, i, 1);
 
         	if (company.isEmpty() && expense.isEmpty()) {
-        	    System.out.println("🛑 CreatePayment Blank row found, exiting...");
+        	    System.out.println("Create Expense Payment Blank row found in configuration file, exiting.....");
         	    break;
         	}
         	

@@ -189,7 +189,7 @@ public class DebitNoteReceipt_Object extends BaseClass{
         	String vendor = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee6, i, 1);
 
         	if (company.isEmpty() && vendor.isEmpty()) {
-        	    System.out.println("🛑 CreateDebitNoteReceipt Blank row found, exiting...");
+        	    System.out.println("Create Expense Debit Note Receipt Blank row found in configuration file, exiting.....");
         	    break;
         	}
         	

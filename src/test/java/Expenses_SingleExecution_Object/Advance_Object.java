@@ -342,7 +342,7 @@ public class Advance_Object extends BaseClass {
         	String expense = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee4, i, 1);
 
         	if (company.isEmpty() && expense.isEmpty()) {
-        	    System.out.println("🛑 CreateAdvance Blank row found, exiting...");
+        	    System.out.println("Create Expense Advance Blank row found in configuration file, exiting.....");
         	    break;
         	}
         	

@@ -259,7 +259,7 @@ public class DebitNote_Object extends BaseClass{
         	String vendor = AppInd.readCellValueEmpty(data.XLFilepath, data.XlShee5, i, 1);
 
         	if (company.isEmpty() && vendor.isEmpty()) {
-        	    System.out.println("🛑 CreateDebitNote Blank row found, exiting...");
+        	    System.out.println("Create Expense Debit Note Blank row found in configuration file, exiting.....");
         	    break;
         	}
         	
