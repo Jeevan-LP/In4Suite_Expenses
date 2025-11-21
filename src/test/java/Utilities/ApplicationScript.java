@@ -53,7 +53,7 @@ public class ApplicationScript extends BaseClass {
 
         appInd.waitForClickable(browserDriver, yesBtn, wait);
         yesBtn.click();
-        System.out.println("🟢 In4Suite Login successful!");
+        System.out.println("In4Suite Login successful!.....");
     }
 
     @Test(priority = 7)
@@ -65,6 +65,6 @@ public class ApplicationScript extends BaseClass {
         appInd.waitForClickable(browserDriver, logoutBtn, 20);
         logoutBtn.click();
 
-        System.out.println("🟢 In4Suite Logout successful!");
+        System.out.println("In4Suite Logout successful!.....");
     }
 }
