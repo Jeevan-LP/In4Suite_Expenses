@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-BatchExecutionSuite" class="navigator-link">
-              <span class="suite-name border-passed">BatchExecutionSuite</span>
+              <span class="suite-name border-failed">BatchExecutionSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-BatchExecutionSuite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>10 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-BatchExecutionSuite" class="hide-methods failed suite-BatchExecutionSuite"> (hide)</a> <!-- hide-methods failed suite-BatchExecutionSuite -->
+                      <a href="#" panel-name="suite-BatchExecutionSuite" class="show-methods failed suite-BatchExecutionSuite"> (show)</a> <!-- show-methods failed suite-BatchExecutionSuite -->
+                    </span>
+                    <div class="method-list-content failed suite-BatchExecutionSuite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-BatchExecutionSuite" title="Expenses_TestCases.Expenses_FullTest" class="method navigator-link" hash-for-method="Payment">Payment</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-BatchExecutionSuite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +117,22 @@
                     <div class="method-list-content passed suite-BatchExecutionSuite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-BatchExecutionSuite" title="Expenses_TestCases.Advance_Test" class="method navigator-link" hash-for-method="AdvanceCreateTest">AdvanceCreateTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-BatchExecutionSuite" title="Expenses_TestCases.Expenses_FullTest" class="method navigator-link" hash-for-method="Advance">Advance</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-BatchExecutionSuite" title="Expenses_TestCases.Expenses_FullTest" class="method navigator-link" hash-for-method="DebitNote">DebitNote</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-BatchExecutionSuite" title="Expenses_TestCases.Expenses_FullTest" class="method navigator-link" hash-for-method="DebitNoteReceipt">DebitNoteReceipt</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-BatchExecutionSuite" title="Expenses_TestCases.Expenses_FullTest" class="method navigator-link" hash-for-method="WorkOrder">WorkOrder</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-BatchExecutionSuite -->
@@ -118,17 +147,86 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-BatchExecutionSuite" class="panel BatchExecutionSuite">
-          <div class="suite-BatchExecutionSuite-class-passed">
+          <div class="suite-BatchExecutionSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Expenses_TestCases.Advance_Test</span>
+              <img src="failed.png"/>
+              <span class="class-name">Expenses_TestCases.Expenses_FullTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="AdvanceCreateTest">
-                  </a> <!-- AdvanceCreateTest -->
-                  <span class="method-name">AdvanceCreateTest</span>
+                  <a name="Payment">
+                  </a> <!-- Payment -->
+                  <span class="method-name">Payment</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for frame to be available: By.xpath: //iframe[@id=&apos;erpContainer&apos;] (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at Utilities.AppDependent.MainParentFrame(AppDependent.java:44)
+	at Utilities.ApplicationScript.logoutTest(ApplicationScript.java:62)
+	at Expenses_TestCases.Expenses_FullTest.Payment(Expenses_FullTest.java:58)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//iframe[@id=&apos;erpContainer&apos;]&quot;}
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [73cda56cd2d82916c19dd416624f4fdc, findElement {using=xpath, value=//iframe[@id=&apos;erpContainer&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:12307}, goog:processID: 21844, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:12307/devtoo..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 73cda56cd2d82916c19dd416624f4fdc
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.ui.ExpectedConditions$17.apply(ExpectedConditions.java:491)
+	at org.openqa.selenium.support.ui.ExpectedConditions$17.apply(ExpectedConditions.java:487)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 33 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-BatchExecutionSuite-class-failed -->
+          <div class="suite-BatchExecutionSuite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Expenses_TestCases.Expenses_FullTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Advance">
+                  </a> <!-- Advance -->
+                  <span class="method-name">Advance</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="DebitNote">
+                  </a> <!-- DebitNote -->
+                  <span class="method-name">DebitNote</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="DebitNoteReceipt">
+                  </a> <!-- DebitNoteReceipt -->
+                  <span class="method-name">DebitNoteReceipt</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="WorkOrder">
+                  </a> <!-- WorkOrder -->
+                  <span class="method-name">WorkOrder</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -145,13 +243,12 @@
 &lt;suite name=&quot;BatchExecutionSuite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;Utilities.ExtentReportManager&quot;/&gt;
-    &lt;listener class-name=&quot;io.qameta.allure.testng.AllureTestNg&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot; verbose=&quot;0&quot;&gt;
     &lt;parameter name=&quot;os&quot; value=&quot;windows&quot;/&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Expenses_TestCases.Advance_Test&quot;/&gt;
+      &lt;class name=&quot;Expenses_TestCases.Expenses_FullTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- BatchExecutionSuite --&gt;
@@ -175,6 +272,106 @@
             <span class="header-content">Groups for BatchExecutionSuite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">AdvanceFlow</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">Advance</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">CriticalWorkflowSuite</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">Payment</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">WorkOrder</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">DebitNoteFlow</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">DebitNote</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">DebitNoteReceiptFlow</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">DebitNoteReceipt</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">ExpenseModule</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">Advance</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">DebitNote</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">DebitNoteReceipt</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Payment</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">WorkOrder</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">PaymentFlow</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">Payment</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">RegressionSuite1</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">DebitNote</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">RegressionSuite2</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">DebitNoteReceipt</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">SmokeSuite</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">Advance</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">WorkOrderFlow</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">WorkOrder</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-BatchExecutionSuite" class="panel">
@@ -191,16 +388,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'AdvanceCreateTest')
-data.setCell(0, 2, 'Expenses_TestCases.Advance_Test')
-data.setCell(0, 3, 2493);
+data.setCell(0, 1, 'WorkOrder')
+data.setCell(0, 2, 'Expenses_TestCases.Expenses_FullTest')
+data.setCell(0, 3, 179687);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Payment')
+data.setCell(1, 2, 'Expenses_TestCases.Expenses_FullTest')
+data.setCell(1, 3, 61131);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Advance')
+data.setCell(2, 2, 'Expenses_TestCases.Expenses_FullTest')
+data.setCell(2, 3, 31050);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'DebitNote')
+data.setCell(3, 2, 'Expenses_TestCases.Expenses_FullTest')
+data.setCell(3, 3, 31037);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'DebitNoteReceipt')
+data.setCell(4, 2, 'Expenses_TestCases.Expenses_FullTest')
+data.setCell(4, 3, 31031);
 window.suiteTableData['BatchExecutionSuite']= { tableData: data, tableDiv: 'times-div-BatchExecutionSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 5 minutes</span>
               <div id="times-div-BatchExecutionSuite">
               </div> <!-- times-div-BatchExecutionSuite -->
             </div> <!-- times-div -->
@@ -226,18 +439,36 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Expenses_TestCases.Advance_Test</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Expenses_TestCases.Expenses_FullTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUp(windows, chrome, org.testng.TestRunner@66213a0d)</span>
+                <span class="method-name">setUp(windows, chrome, org.testng.TestRunner@639cb788)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">AdvanceCreateTest</span>
-                <span class="method-start">8775 ms</span>
+                <span class="method-name">WorkOrder</span>
+                <span class="method-start">4697 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Advance</span>
+                <span class="method-start">184418 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">DebitNote</span>
+                <span class="method-start">215474 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">DebitNoteReceipt</span>
+                <span class="method-start">246524 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Payment</span>
+                <span class="method-start">277556 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">11459 ms</span>
+                <span class="method-start">339062 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
